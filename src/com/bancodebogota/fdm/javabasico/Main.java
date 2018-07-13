@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        ListaSimple lista=new ListaSimple("1");
+        ListaSimple<String> lista=new ListaSimple("1");
         
         lista.insertarNodo("2");
         lista.insertarNodo("3");
@@ -30,7 +30,7 @@ public class Main {
         lista.insertarNodo("10");        
         lista.listar();
         
-        ListaArray listaArray=new ListaArray();
+        ListaArray<String> listaArray=new ListaArray();
         listaArray.insertar("1");
         listaArray.insertar("2");        
         listaArray.insertar("3");

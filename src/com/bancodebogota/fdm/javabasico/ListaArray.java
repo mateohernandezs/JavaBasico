@@ -10,37 +10,30 @@ import java.util.Arrays;
 /**
  *
  * @author mateo
+ * @param <T>
  */
-public class ListaArray {
+public class ListaArray<T> {
 
     private int TAMANO = 4;
-    private Object[] values;
+    private T[] values;
 
     private final static int INCREMENTO = 2;
     private int posicion;
 
     public ListaArray() {
-        this.values = new Object[this.TAMANO];
+        this.values = (T[]) new Object[this.TAMANO];
         this.posicion = 0;
     }
 
-    public void insertar(Object objeto) {
-        try {
-            if (objeto instanceof String) {
-                if ((posicion) == (this.TAMANO / INCREMENTO)) {
-                    this.values = Arrays.copyOf(values, this.TAMANO * INCREMENTO);
-                    this.TAMANO = this.TAMANO * INCREMENTO;
-                }
-                this.values[this.posicion] = objeto;
-                System.out.println("Insertado: " + objeto.toString() + " - POSICION: " + this.posicion + " - TAMAÑO: " + this.TAMANO);
-                ++this.posicion;
-            } else {
-                throw new Exception("Tipo no permitido");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void insertar(T objeto) {
 
+        if ((posicion) == (this.TAMANO / INCREMENTO)) {
+            this.values = Arrays.copyOf(values, this.TAMANO * INCREMENTO);
+            this.TAMANO = this.TAMANO * INCREMENTO;
+        }
+        this.values[this.posicion] = objeto;
+        System.out.println("Insertado: " + objeto.toString() + " - POSICION: " + this.posicion + " - TAMAÑO: " + this.TAMANO);
+        ++this.posicion;
     }
 
     public void imprimir() {

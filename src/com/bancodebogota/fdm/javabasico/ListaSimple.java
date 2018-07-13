@@ -9,12 +9,12 @@ package com.bancodebogota.fdm.javabasico;
  *
  * @author mateo
  */
-public class ListaSimple {
+public class ListaSimple<T> {
 
     private Nodo root;
     private Nodo nodoAct;
 
-    public ListaSimple(Object o) {
+    public ListaSimple(T o) {
         Nodo nodo = new Nodo(o);
         this.root = nodo;
         this.nodoAct = nodo;
@@ -36,18 +36,10 @@ public class ListaSimple {
         this.nodoAct = nodoAct;
     }
 
-    public void insertarNodo(Object o) {
-        try {
-            if (o instanceof String) {
-                Nodo nodo = new Nodo(o);
-                this.nodoAct.setNext(nodo);
-                this.nodoAct = nodo;
-            } else {
-                throw new Exception("Tipo no permitido");
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        }
+    public void insertarNodo(T o) {
+        Nodo nodo = new Nodo(o);
+        this.nodoAct.setNext(nodo);
+        this.nodoAct = nodo;
 
     }
 
