@@ -5,11 +5,17 @@
  */
 package com.bancodebogota.fdm.javabasico;
 
+import java.util.Iterator;
+import java.util.function.Consumer;
+
+
+
 /**
  *
  * @author mateo
+ * @param <T>
  */
-public class ListaSimple<T> {
+public class ListaSimple<T> implements Iterable <T>{
 
     private Nodo root;
     private Nodo nodoAct;
@@ -19,7 +25,27 @@ public class ListaSimple<T> {
         this.root = nodo;
         this.nodoAct = nodo;
     }
+    
+    public class MyIterator implements Iterator<T>{        
+        Nodo iterador;
 
+        public MyIterator() {
+            this.iterador = root;
+        }        
+        
+        @Override
+        public boolean hasNext() {
+            return iterador!=null;
+        }
+
+        @Override
+        public T next() {
+            T valor = (T)iterador.getValue();
+            iterador = iterador.getNext();            
+            return valor;
+        }   
+    }
+    
     public Nodo getRoot() {
         return root;
     }
@@ -42,7 +68,7 @@ public class ListaSimple<T> {
         this.nodoAct = nodo;
 
     }
-
+    /*
     public void listar() {
         Nodo nodo = this.root;
         System.out.println(nodo);
@@ -51,5 +77,11 @@ public class ListaSimple<T> {
             System.out.println(nodo);
         }
 
+    }    */
+
+    @Override
+    public Iterator iterator() {
+        return new MyIterator();
     }
+
 }
