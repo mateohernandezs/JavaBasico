@@ -5,6 +5,10 @@
  */
 package com.bancodebogota.fdm.javabasico;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
 /**
  *
  * @author mateo
@@ -34,7 +38,30 @@ public class Main {
         
         for(String s : listaArray){
             System.out.println(s);
-        }      
+        }    
+        
+        
+        
+        //** ArrayList **
+        ArrayList<String> arrayList = new ArrayList();
+        
+        for (int i = 1; i <=20; i++) {
+            arrayList.add(i+"");
+        }        
+        Comparator<String> c = (o1, o2) -> {
+            return o2.compareTo(o1); //To change body of generated lambdas, choose Tools | Templates.
+        };
+        
+        
+        
+        System.out.println("Imprimiento array List");
+        Collections.sort(arrayList, c);
+        for(String s : arrayList){
+            System.out.println(s);
+        } 
+       
+        
+        
         
     }
     
