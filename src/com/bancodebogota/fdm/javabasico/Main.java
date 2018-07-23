@@ -5,6 +5,7 @@
  */
 package com.bancodebogota.fdm.javabasico;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -79,6 +80,25 @@ public class Main {
                 .sorted(c)
                 .forEach(s -> System.out.println(s));
         
+        
+        //FILE
+    
+        File objArc = new File("C:\\Users\\admin\\Desktop\\ArchivoEjmplo.txt");
+    
+        System.out.println("Nombre del Archivo: "+ objArc.getName());
+        System.out.println("Path relativo: "+ objArc.getPath());
+        System.out.println("Path Absoluto: "+ objArc.getAbsolutePath());
+        System.out.println("Directorio Padre: "+ objArc.getParent());
+        System.out.println(objArc.exists() ? "existe" : "no existe");
+        System.out.println("Ultima modificacion: "+ objArc.lastModified());
+        System.out.println(objArc.canWrite()? "es de escritura" : "no es de escritura");
+        System.out.println(objArc.canRead()? "es de lectura" : "no es de lectura");
+        System.out.println(objArc.isFile()? "archivo normal" : "no normal");
+        System.out.println("Tamaño: "+ objArc.length() + "Bytes");
     }
+    
+     
+    
+  
     
 }
